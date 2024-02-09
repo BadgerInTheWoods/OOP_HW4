@@ -1,6 +1,7 @@
 package GBLinkedList;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class Linklist<T> {
     private Node<T> head;
@@ -12,6 +13,8 @@ public class Linklist<T> {
         Node<T> newNode = new Node<>(elem, head, null);
         if (head != null) {
             head.previous = newNode;
+        } else {
+            tail = newNode;
         }
         head = newNode;
         this.size++;
@@ -21,6 +24,8 @@ public class Linklist<T> {
         Node<T> newNode = new Node<>(elem, null, tail);
         if (tail != null) {
             tail.next = newNode;
+        } else {
+            head = newNode;
         }
         tail = newNode;
         this.size++;
@@ -54,7 +59,7 @@ public class Linklist<T> {
                 current = null;
             }
         }
-        size--;
+        this.size--;
 
     }
 
